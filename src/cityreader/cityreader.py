@@ -28,14 +28,14 @@ def cityreader(cities=[]):
   with open('cities.csv') as csv_file:
       csv_reader = csv.reader(csv_file, delimiter=',')
 
+      next(csv_reader)
+
       for row in csv_reader:
-          name = row[0]
-          lat = row[3]
-          lon = row[3]
+          name = str(row[0])
+          lat = float(row[3])
+          lon = float(row[4])
           city = City(name, lat, lon)
           cities.append(city)
-
-  cities.pop(0)
 
   return cities
 
